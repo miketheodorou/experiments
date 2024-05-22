@@ -6,24 +6,17 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/movie-ticket',
-
   server: {
-    port: 4200,
+    open: true,
+    port: 3000,
     host: 'localhost',
   },
-
   preview: {
-    port: 4300,
+    open: true,
+    port: 3001,
     host: 'localhost',
   },
-
   plugins: [react(), nxViteTsPaths()],
-
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
-
   build: {
     outDir: '../../dist/apps/movie-ticket',
     reportCompressedSize: true,
@@ -31,7 +24,6 @@ export default defineConfig({
       transformMixedEsModules: true,
     },
   },
-
   test: {
     globals: true,
     cache: {
@@ -39,7 +31,6 @@ export default defineConfig({
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-
     reporters: ['default'],
     coverage: {
       reportsDirectory: '../../coverage/apps/movie-ticket',
